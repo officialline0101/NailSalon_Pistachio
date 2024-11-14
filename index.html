@@ -188,8 +188,8 @@
 <body>
     <div class="container">
         <h1>ピスタチオ<br>予約フォーム</h1>
-        <div class="label">お客様名※必須</div>
-        <input type="text" id="name" placeholder="お名前を入力してください">
+        <div class="label">お客様名(カタカナ)※必須</div>
+        <input type="text" id="name" placeholder="フルネームを入力してください">
 
         <div class="label">電話番号※必須</div>
         <input type="tel" id="phone" placeholder="電話番号を入力してください">
@@ -241,7 +241,7 @@
             </div>
             <label>オプション※複数選択可</label>
             <div class="irradiations">
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">フット角質ケア<br>(フットメニュー選択時のみ)〈30分〉</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">フット角質ケア(フットメニュー選択時のみ)〈30分〉</button>
                 <button type="button" id="niirradiations" onclick="selectirradiations(this)" data-price="15000">ハンドジェルスカルプ１本〈15分〉</button>
                 <button type="button" id="repeatirradiations" onclick="selectirradiations(this)" data-price="15000">ハンドアクリルスカルプ１本〈15分〉</button>
                 <button type="button" id="sanirradiations" onclick="selectirradiations(this)" data-price="15000">ハンド亀裂補強１本〈10分〉</button>
@@ -253,7 +253,7 @@
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this)" data-price="15000">ネイルセミナー2時間〈140分〉</button>
                 <button type="button" onclick="selectSymptom(this)" data-price="15000">ネイルセミナー3時間〈200分〉</button>
-                <button type="button" onclick="selectSymptom(this)" data-price="15000">シャイニージェルパワーベース<br>導入セミナー〈150分〉</button>
+                <button type="button" onclick="selectSymptom(this)" data-price="15000">シャイニージェルパワーベース導入セミナー〈150分〉</button>
                 <button type="button" onclick="selectSymptom(this)" data-price="15000">ネイルマシンセミナー〈260分〉</button>
             </div>
         </div>
@@ -353,8 +353,8 @@ function selectSymptom(button) {
 
     // 選択されたオプションを取得
     const selectedButtons = document.querySelectorAll('.symptoms button.active');
-    const selectedSymptoms = Array.from(selectedButtons).map(btn => btn.innerText.replace(/\r?\n|\r/g, '')); // 改行を削除
-    selectedSymptom = selectedSymptoms.join(', '); // カンマで区切って結合
+    const selectedSymptoms = Array.from(selectedButtons).map(btn => btn.innerText);
+    selectedSymptom = selectedSymptoms.join(', ');
 
     // 表示を更新
     updateDisplayInfo();
@@ -366,10 +366,7 @@ function selectirradiations(button) {
 
     // 選択されたオプションを取得
     const selectedButtons = document.querySelectorAll('.irradiations button.active');
-    const selectedIrradiations = Array.from(selectedButtons).map(btn => {
-        // ボタンのテキストから改行を除去して取得
-        return btn.innerText.replace(/\n/g, '');
-    });
+    const selectedIrradiations = Array.from(selectedButtons).map(btn => btn.innerText);
     irradiationsCount = selectedIrradiations.join(', ');
 
         // すべてのオプションの価格を再計算
@@ -556,7 +553,7 @@ function showMenu(menu) {
             };
 
 // フォームデータのチェック
-if (!formData.name || !formData.phone || !formData.selectedSymptom) {
+if (!formData.name || !formData.phone || !formData.selectedSymptom|| !formData.nailCount) {
     alert('お名前・電話番号・他店or自店・メニューすべてご記入ください。');
     return;
 }
@@ -628,11 +625,15 @@ function updateCalendar(availability, businessDays) {
     const calendar = document.getElementById('calendar1');
     const table = calendar.querySelector('table tbody');
 
-const times = [
-        '10:00', '10:30', '11:00', '11:30',
-        '12:00', '12:30', '13:00', '13:30',
-        '14:00', '14:30', '15:00', '15:30',
-        '16:00', '16:30', '17:00', '17:30'
+    const times = [
+    '10:00', '10:15', '10:30', '10:45',
+    '11:00', '11:15', '11:30', '11:45',
+    '12:00', '12:15', '12:30', '12:45',
+    '13:00', '13:15', '13:30', '13:45',
+    '14:00', '14:15', '14:30', '14:45',
+    '15:00', '15:15', '15:30', '15:45',
+    '16:00', '16:15', '16:30', '16:45',
+    '17:00', '17:15', '17:30', '17:45'
 ];
 
     if (table.rows.length === 0) {
