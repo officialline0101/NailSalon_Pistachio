@@ -460,63 +460,73 @@
             color: #fff;
             /* 色を濃く */
         }
+
         .menutreatment-container {
-        text-align: center;
-        padding: 10px;
-        background-color: #ffffff;
-        color: #333;
-        border-radius: 8px;
-        border: 1px solid #e0e0e0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        max-width: 350px;
-        margin: auto;
-    }
-    .menutreatment-image {
-        text-align: center;
-        margin-top: 15px;
-        position: relative;
-        width: 100%;
-        max-width: 300px;
-        height: 180px;
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid #d4af37;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin: 15px auto;
-    }
-    .menutreatment-description {
-        margin-top: 15px;
-        padding: 15px;
-        background-color: #fafafa;
-        color: #555;
-        border-radius: 8px;
-        border: 1px solid #e0e0e0;
-        font-size: 14px;
-        line-height: 1.5;
-        text-align: left;
-        max-width: 350px;
-        margin: 15px auto;
-    }
-    .menuspinner-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-    }
-    .menutitle {
-    font-size: 24px;
-    color: #4A4A4A;
-    text-align: center;
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
+            text-align: center;
+            padding: 10px;
+            background-color: #ffffff;
+            color: #333;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            margin: auto;
+        }
+
+        .menutreatment-image {
+            text-align: center;
+            margin-top: 15px;
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            height: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #d4af37;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 15px auto;
+        }
+
+        .menutreatment-description {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #fafafa;
+            color: #555;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: left;
+            max-width: 350px;
+            margin: 15px auto;
+        }
+
+        .menuspinner-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .menutitle {
+            font-size: 24px;
+            color: #4A4A4A;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
 
         .black-x {
             color: black;
             /* ✕を黒色に設定 */
         }
-        
+        .gel-buttons {
+    display: flex; /* フレックスボックスで配置 */
+    flex-direction: column; /* ボタンを縦並びにする */
+    gap: 10px; /* ボタン間に余白を追加 */
+    width: 100%; /* 親要素の幅を使用 */
+}
         .info-
     </style>
 </head>
@@ -566,13 +576,20 @@
             </div>
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">ワンカラー〈75分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="15000">ラメグラデーション〈75分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="15000">カラーグラデーション〈75分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="15000">フレンチ(クリアベース)〈90分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="15000">シンプルコース〈90分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="15000">エレガントコース〈120分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="15000">ラグジュアリーコース〈120分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="15000">持ち込みデザインコース〈150分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment2')"
+                    data-price="15000">ラメグラデーション〈75分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment3')"
+                    data-price="15000">カラーグラデーション〈75分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment4')"
+                    data-price="15000">フレンチ(クリアベース)〈90分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment5')"
+                    data-price="15000">シンプルコース〈90分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment6')"
+                    data-price="15000">エレガントコース〈120分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment7')"
+                    data-price="15000">ラグジュアリーコース〈120分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment8')"
+                    data-price="15000">持ち込みデザインコース〈150分〉</button>
             </div>
             <div class="highlight-background">
                 <span class="highlight-text">オプション</span>
@@ -582,7 +599,8 @@
                     data-price="15000">ハンドジェルスカルプ1本〈15分〉</button>
                 <button type="button" id="repeatirradiations" onclick="selectirradiations(this)"
                     data-price="15000">ハンドアクリルスカルプ1本〈15分〉</button>
-                <button type="button" id="sanirradiations" onclick="selectirradiations(this)" data-price="15000">ハンド亀裂補強1本〈10分〉</button>
+                <button type="button" id="sanirradiations" onclick="selectirradiations(this)"
+                    data-price="15000">ハンド亀裂補強1本〈10分〉</button>
             </div>
         </div>
 
@@ -591,11 +609,16 @@
                 <span class="highlight-text">◆フットメニュー◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-price="15000">フットワンカラー〈75分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment10')" data-price="15000">フットアートコース〈90分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment11')" data-price="15000">フット持ち込みデザインコース〈120分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment12')" data-price="15000">フット巻き爪ケア1本〈30分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment13')" data-price="15000">フットトータルケア〈60分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')"
+                    data-price="15000">フットワンカラー〈75分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment10')"
+                    data-price="15000">フットアートコース〈90分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment11')"
+                    data-price="15000">フット持ち込みデザインコース〈120分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment12')"
+                    data-price="15000">フット巻き爪ケア1本〈30分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment13')"
+                    data-price="15000">フットトータルケア〈60分〉</button>
             </div>
             <div class="highlight-background">
                 <span class="highlight-text">オプション</span>
@@ -619,7 +642,8 @@
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this)" data-price="15000">ネイルセミナー2時間〈140分〉</button>
                 <button type="button" onclick="selectSymptom(this)" data-price="15000">ネイルセミナー3時間〈200分〉</button>
-                <button type="button" onclick="selectSymptom(this)" data-price="15000">シャイニージェルパワーベース導入セミナー〈150分〉</button>
+                <button type="button" onclick="selectSymptom(this)"
+                    data-price="15000">シャイニージェルパワーベース導入セミナー〈150分〉</button>
                 <button type="button" onclick="selectSymptom(this)" data-price="15000">ネイルマシンセミナー〈260分〉</button>
             </div>
         </div>
@@ -718,6 +742,8 @@
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
 
         let menuTimes = {
+            '他店ジェル（オフのみ）〈75分〉': 75,
+            '自店ジェル（オフのみ）〈75分〉': 75,
             'ワンカラー〈75分〉': 75,
             'ラメグラデーション〈75分〉': 75,
             'カラーグラデーション〈75分〉': 75,
@@ -863,7 +889,7 @@
             const treatmentText = document.getElementById('treatment-text');
 
             function createTreatmentContent(title, imageUrl, description, price, time) {
-    return `
+                return `
         <div class="menutreatment-container">
             <div style="font-size: 18px; font-weight: bold;">${title}</div>
         </div>
@@ -880,144 +906,144 @@
 
         <div class="menutreatment-price">
         </div>`;
-}
+            }
 
-if (treatmentId === 'treatment1') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'ワンカラー',
-        'https://www.dropbox.com/scl/fi/yjouvzh5uc3ucgcktepq9/.jpg?rlkey=tn770rqjawznnp25ts01l3vor&st=ynimm09r&raw=1',
-        '300色以上のカラーの中から選択可能<br>(2色まで色変え無料)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:75分',
-        '9800円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment2') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'ラメグラデーション',
-        'https://www.dropbox.com/scl/fi/hr2qn6f37g566lb4cqhbo/.jpg?rlkey=as8c84h1pi8liebjmj0uzn07d&st=foa1k9ud&raw=1',
-        '100色以上のカラーの中から選択可能<br>(2色まで色変え無料)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:75分',
-        '3300円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment3') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'カラーグラデーション',
-        'https://www.dropbox.com/scl/fi/jrfiaiht8oyy1rug6b28c/.jpg?rlkey=45y6cbjvelkroqj5a7zjdartb&st=iupl1m64&raw=1',
-        '300色以上のカラーの中から選択可能<br>(2色まで色変え無料)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:75分',
-        '4400円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment4') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'フレンチ(クリアベース)',
-        'https://www.dropbox.com/scl/fi/x37mxhx5eni1p0uaelunk/.jpg?rlkey=wyhynquldg7mitjz551cgs2a1&st=vt6qm683&raw=1',
-        'ベースワンカラー・ラメライン<br>料金別途爪の形整え、ドライキューティクルケア込み<br>所要時間:90分',
-        '4400円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment5') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'シンプルコース',
-        'https://www.dropbox.com/scl/fi/rz64bnpt3l2576v9g36h3/.jpg?rlkey=69o2paoko89k2s3x0hflhzmun&st=1ruk88l9&raw=1',
-        '当店のデザインの中からお選びください。<br>(カラー変更OK)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:90分',
-        '3300円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment6') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'エレガントコース',
-        'https://www.dropbox.com/scl/fi/6s0beoxjrkvk3uywlylqf/.jpg?rlkey=gk3o9z0faunn1j2w9o6m8js7b&st=3t237m9p&raw=1',
-        '当店のデザインの中からお選びください。<br>(カラー変更OK)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:120分',
-        '14800円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment7') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'ラグジュアリーコース',
-        'https://www.dropbox.com/scl/fi/j0i7ybm1h7zplx5ykbfor/.jpg?rlkey=4gk5vw4hqaaudo4f7d59oggyr&st=2c4r5utp&raw=1',
-        '当店のデザインの中からお選びください。<br>(カラー変更OK)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:120分',
-        '4900円',
-        '90分'
-    );
-} else if (treatmentId === 'treatment8') {
-    treatmentText.innerHTML = createTreatmentContent(
-        '持ち込みデザインコース',
-        'https://www.dropbox.com/scl/fi/pk45vp6bq2nwghhy4dltv/.jpg?rlkey=rfs32cybja8qw9fs6r2f8cm3a&st=1buxofbf&raw=1',
-        'デザインによって料金が変わります。<br>事前にご相談ください。<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:150分',
-        '2800円',
-        '60分'
-    );
-} else if (treatmentId === 'treatment9') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'フットワンカラー',
-        'https://www.dropbox.com/scl/fi/jykf0a9tud0r1m26h1r9z/.jpg?rlkey=sh97tsfo4nqplxeea4r00keh4&st=wbi8d4nj&raw=1',
-        '300色以上のカラーの中からお選びください。<br>フットバス・爪の形整え・ドライキューティクルケア込み<br>所要時間:75分',
-        '4800円',
-        '90分'
-    );
-} else if (treatmentId === 'treatment10') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'フットアートコース',
-        'https://www.dropbox.com/scl/fi/2ruyf5i94jj0got8gwcoh/.jpg?rlkey=rnphukxsve6ho3qrxll7ibrwh&st=ubsw8dgd&raw=1',
-        '当店のデザインから選択。<br>デザインで料金変動有。<br>フットバス・爪の形整え・ドライキューティクルケア込み<br>所要時間:90分',
-        '16800円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment11') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'フット持ち込みデザインコース',
-        'https://www.dropbox.com/scl/fi/pk45vp6bq2nwghhy4dltv/.jpg?rlkey=rfs32cybja8qw9fs6r2f8cm3a&st=dphor7d3&raw=1',
-        'デザインで料金変動有。<br>事前にご相談ください。<br>フットバス・爪の形整え・ドライキューティクルケア込み<br>所要時間:75分',
-        '11800円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment12') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'フット巻き爪ケア１本',
-        'https://www.dropbox.com/scl/fi/n95k1qubkqxnryuxy40al/.jpg?rlkey=rjvh133jag9xv6xhtcalm8jp9&st=3xnmc2vu&raw=1',
-        '巻き爪ケアをしながらジェルネイルも出来ます。<br>ご希望の方はフットネイルメニューもご選択ください。<br>所要時間:75分',
-        '5800円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment13') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'フットトータルケア',
-        'https://www.dropbox.com/scl/fi/glwf47ozvb8v3e3qj90tg/.jpg?rlkey=4um77wzm3gmg7yd4l0r0a1qi8&st=obbwsm6h&raw=1',
-        'フットバス・爪の形整え・キューティクルケア角質ケア・炭酸バブルトリートメント・トップコート仕上げ所要時間:75分',
-        '8800円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment14') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'お顔かVIO',
-        'https://www.dropbox.com/scl/fi/gqlhckr0pyc44w02gm373/VIO.png?rlkey=1xryee33ucyygjnzaxpp6bah8&st=pzcz1ujj&raw=1',
-        '全顔・VIO選べる脱毛メニュー<br>どっちかでいいんだよね！って方！！！',
-        '5800円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment15') {
-    treatmentText.innerHTML = createTreatmentContent(
-        'お顔とVIO',
-        'https://www.dropbox.com/scl/fi/wtjvzhqskboewgplgi5x6/VIO.png?rlkey=7kdp669nb1snnqyvb4cfqffv2&st=vjlscfr4&raw=1',
-        '全顔とVIOを両方脱毛できる贅沢コース♪<br>どっちもやりたいんだよね！<br>って方！！！',
-        '8800円',
-        '-分'
-    );
-} else if (treatmentId === 'treatment16') {
-    treatmentText.innerHTML = createTreatmentContent(
-        '1パーツ脱毛体験',
-        'https://www.dropbox.com/scl/fi/eg0cfwv6nl7y8orwod6ko/1.png?rlkey=kxkz13vagp08li50y3nx8r2oz&st=dzhpnapw&raw=1',
-        '痛みを感じにくく効果を実感していただける<br>脱毛器を導入しておりますので<br>痛みに弱い方でも安心してご体験いただけます♪',
-        '1500円',
-        '60分'
-    );
-} else if (treatmentId === 'treatment17') {
-    treatmentText.innerHTML = createTreatmentContent(
-        '3パーツ脱毛体験',
-        'https://www.dropbox.com/scl/fi/2yb9nnjsp1bgp10ooytis/3.png?rlkey=hiv23p7ohlfmwq9mmlso1w6xx&st=8r8ly8wg&raw=1',
-        'ご新規様限定で通常料金より<br>お得にご体験いただけます♪',
-        '3900円',
-        '90分'
-    );
+            if (treatmentId === 'treatment1') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'ワンカラー',
+                    'https://www.dropbox.com/scl/fi/yjouvzh5uc3ucgcktepq9/.jpg?rlkey=tn770rqjawznnp25ts01l3vor&st=ynimm09r&raw=1',
+                    '300色以上のカラーの中から選択可能<br>(2色まで色変え無料)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:75分',
+                    '9800円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment2') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'ラメグラデーション',
+                    'https://www.dropbox.com/scl/fi/hr2qn6f37g566lb4cqhbo/.jpg?rlkey=as8c84h1pi8liebjmj0uzn07d&st=foa1k9ud&raw=1',
+                    '100色以上のカラーの中から選択可能<br>(2色まで色変え無料)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:75分',
+                    '3300円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment3') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'カラーグラデーション',
+                    'https://www.dropbox.com/scl/fi/jrfiaiht8oyy1rug6b28c/.jpg?rlkey=45y6cbjvelkroqj5a7zjdartb&st=iupl1m64&raw=1',
+                    '300色以上のカラーの中から選択可能<br>(2色まで色変え無料)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:75分',
+                    '4400円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment4') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'フレンチ(クリアベース)',
+                    'https://www.dropbox.com/scl/fi/x37mxhx5eni1p0uaelunk/.jpg?rlkey=wyhynquldg7mitjz551cgs2a1&st=vt6qm683&raw=1',
+                    'ベースワンカラー・ラメライン<br>料金別途爪の形整え、ドライキューティクルケア込み<br>所要時間:90分',
+                    '4400円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment5') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'シンプルコース',
+                    'https://www.dropbox.com/scl/fi/rz64bnpt3l2576v9g36h3/.jpg?rlkey=69o2paoko89k2s3x0hflhzmun&st=1ruk88l9&raw=1',
+                    '当店のデザインの中からお選びください。<br>(カラー変更OK)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:90分',
+                    '3300円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment6') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'エレガントコース',
+                    'https://www.dropbox.com/scl/fi/6s0beoxjrkvk3uywlylqf/.jpg?rlkey=gk3o9z0faunn1j2w9o6m8js7b&st=3t237m9p&raw=1',
+                    '当店のデザインの中からお選びください。<br>(カラー変更OK)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:120分',
+                    '14800円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment7') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'ラグジュアリーコース',
+                    'https://www.dropbox.com/scl/fi/j0i7ybm1h7zplx5ykbfor/.jpg?rlkey=4gk5vw4hqaaudo4f7d59oggyr&st=2c4r5utp&raw=1',
+                    '当店のデザインの中からお選びください。<br>(カラー変更OK)<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:120分',
+                    '4900円',
+                    '90分'
+                );
+            } else if (treatmentId === 'treatment8') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    '持ち込みデザインコース',
+                    'https://www.dropbox.com/scl/fi/pk45vp6bq2nwghhy4dltv/.jpg?rlkey=rfs32cybja8qw9fs6r2f8cm3a&st=1buxofbf&raw=1',
+                    'デザインによって料金が変わります。<br>事前にご相談ください。<br>爪の形整え、ドライキューティクルケア込み<br>所要時間:150分',
+                    '2800円',
+                    '60分'
+                );
+            } else if (treatmentId === 'treatment9') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'フットワンカラー',
+                    'https://www.dropbox.com/scl/fi/jykf0a9tud0r1m26h1r9z/.jpg?rlkey=sh97tsfo4nqplxeea4r00keh4&st=wbi8d4nj&raw=1',
+                    '300色以上のカラーの中からお選びください。<br>フットバス・爪の形整え・ドライキューティクルケア込み<br>所要時間:75分',
+                    '4800円',
+                    '90分'
+                );
+            } else if (treatmentId === 'treatment10') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'フットアートコース',
+                    'https://www.dropbox.com/scl/fi/2ruyf5i94jj0got8gwcoh/.jpg?rlkey=rnphukxsve6ho3qrxll7ibrwh&st=ubsw8dgd&raw=1',
+                    '当店のデザインから選択。<br>デザインで料金変動有。<br>フットバス・爪の形整え・ドライキューティクルケア込み<br>所要時間:90分',
+                    '16800円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment11') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'フット持ち込みデザインコース',
+                    'https://www.dropbox.com/scl/fi/pk45vp6bq2nwghhy4dltv/.jpg?rlkey=rfs32cybja8qw9fs6r2f8cm3a&st=dphor7d3&raw=1',
+                    'デザインで料金変動有。<br>事前にご相談ください。<br>フットバス・爪の形整え・ドライキューティクルケア込み<br>所要時間:75分',
+                    '11800円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment12') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'フット巻き爪ケア１本',
+                    'https://www.dropbox.com/scl/fi/n95k1qubkqxnryuxy40al/.jpg?rlkey=rjvh133jag9xv6xhtcalm8jp9&st=3xnmc2vu&raw=1',
+                    '巻き爪ケアをしながらジェルネイルも出来ます。<br>ご希望の方はフットネイルメニューもご選択ください。<br>所要時間:75分',
+                    '5800円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment13') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'フットトータルケア',
+                    'https://www.dropbox.com/scl/fi/glwf47ozvb8v3e3qj90tg/.jpg?rlkey=4um77wzm3gmg7yd4l0r0a1qi8&st=obbwsm6h&raw=1',
+                    'フットバス・爪の形整え・キューティクルケア角質ケア・炭酸バブルトリートメント・トップコート仕上げ所要時間:75分',
+                    '8800円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment14') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'お顔かVIO',
+                    'https://www.dropbox.com/scl/fi/gqlhckr0pyc44w02gm373/VIO.png?rlkey=1xryee33ucyygjnzaxpp6bah8&st=pzcz1ujj&raw=1',
+                    '全顔・VIO選べる脱毛メニュー<br>どっちかでいいんだよね！って方！！！',
+                    '5800円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment15') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    'お顔とVIO',
+                    'https://www.dropbox.com/scl/fi/wtjvzhqskboewgplgi5x6/VIO.png?rlkey=7kdp669nb1snnqyvb4cfqffv2&st=vjlscfr4&raw=1',
+                    '全顔とVIOを両方脱毛できる贅沢コース♪<br>どっちもやりたいんだよね！<br>って方！！！',
+                    '8800円',
+                    '-分'
+                );
+            } else if (treatmentId === 'treatment16') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    '1パーツ脱毛体験',
+                    'https://www.dropbox.com/scl/fi/eg0cfwv6nl7y8orwod6ko/1.png?rlkey=kxkz13vagp08li50y3nx8r2oz&st=dzhpnapw&raw=1',
+                    '痛みを感じにくく効果を実感していただける<br>脱毛器を導入しておりますので<br>痛みに弱い方でも安心してご体験いただけます♪',
+                    '1500円',
+                    '60分'
+                );
+            } else if (treatmentId === 'treatment17') {
+                treatmentText.innerHTML = createTreatmentContent(
+                    '3パーツ脱毛体験',
+                    'https://www.dropbox.com/scl/fi/2yb9nnjsp1bgp10ooytis/3.png?rlkey=hiv23p7ohlfmwq9mmlso1w6xx&st=8r8ly8wg&raw=1',
+                    'ご新規様限定で通常料金より<br>お得にご体験いただけます♪',
+                    '3900円',
+                    '90分'
+                );
 
             } else {
                 treatmentText.innerHTML = '';
@@ -1060,24 +1086,28 @@ if (treatmentId === 'treatment1') {
             element.classList.add('active');
             nailCount = element.innerText;
 
-            // "他店か自店かお選びください"のラベルとボタンを管理
+            // "他店か自店かお選びください"のラベルとボタンを切り替える
             const labelGel = document.querySelector('.label:nth-of-type(7)');
             const gelButtons = document.querySelector('.gel-buttons');
-            const firstGelButton = document.getElementById('firstgel');
-            const repeatGelButton = document.getElementById('repeatgel');
 
-            if (nailCount === '付け替えオフあり' || nailCount === 'オフのみ') {
+            if (nailCount === '付け替えオフあり') {
                 labelGel.style.display = 'block';
+                gelButtons.innerHTML = `
+            <div class="gel-buttons">
+                <button type="button" id="firstgel" onclick="selectgel(this)">他店ジェル〈45分〉</button>
+                <button type="button" id="repeatgel" onclick="selectgel(this)">自店ジェル〈30分〉</button>
+            </div>
+        `;
                 gelButtons.style.display = 'flex';
-
-                // 「オフのみ」の場合、ボタンのテキストを変更
-                if (nailCount === 'オフのみ') {
-                    firstGelButton.innerText = '他店ジェル（オフのみ）〈75分〉';
-                    repeatGelButton.innerText = '自店ジェル（オフのみ）〈60分〉';
-                } else {
-                    firstGelButton.innerText = '他店ジェル〈45分〉';
-                    repeatGelButton.innerText = '自店ジェル〈30分〉';
-                }
+            } else if (nailCount === 'オフのみ') {
+                labelGel.style.display = 'block';
+                gelButtons.innerHTML = `
+            <div class="gel-buttons">
+                <button type="button" id="firstgel" onclick="selectgel(this)">他店ジェル（オフのみ）〈75分〉</button>
+                <button type="button" id="repeatgel" onclick="selectgel(this)">自店ジェル（オフのみ）〈75分〉</button>
+            </div>
+        `;
+                gelButtons.style.display = 'flex';
             } else {
                 labelGel.style.display = 'none';
                 gelButtons.style.display = 'none';
@@ -1094,14 +1124,17 @@ if (treatmentId === 'treatment1') {
                 menuButtons.style.display = 'none';
                 maleMenu.style.display = 'none';
                 femaleMenu.style.display = 'none';
+
+                // メニュー変更後にカレンダーを表示
+                const calendarContainer = document.querySelector('.calendar-container');
+                calendarContainer.style.display = 'block';
             } else {
                 labelMenu.style.display = 'block';
                 menuButtons.style.display = 'flex';
             }
 
             // 他店/自店の選択をリセット
-            firstGelButton.classList.remove('active');
-            repeatGelButton.classList.remove('active');
+            document.querySelectorAll('.gel-buttons button').forEach(btn => btn.classList.remove('active'));
             gelCount = '';
 
             // メニュー選択をリセット
@@ -1117,7 +1150,6 @@ if (treatmentId === 'treatment1') {
             // 表示更新
             updateDisplayInfo();
         }
-
         function selectirradiations(button) {
             // 選択された日時をリセット
             selectedFullDate = '';
@@ -1180,55 +1212,50 @@ if (treatmentId === 'treatment1') {
 
 
         function showMenu(menu) {
-            // 選択された日時をリセット
-            selectedFullDate = '';
+    // 選択された日時をリセット
+    selectedFullDate = '';
 
-            // すべてのメニューボタンの選択状態をリセット
-            document.querySelectorAll('.menu-sections button').forEach(button => {
-                button.classList.remove('active');
-            });
+    // 全てのメニューボタンの選択状態をリセット
+    document.querySelectorAll('.menu-sections button').forEach(button => {
+        button.classList.remove('active');
+    });
 
-            // 選択されたメニューセクションを表示
-            document.querySelectorAll('.menu-section').forEach(section => {
-                section.classList.remove('active');
-                section.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
-            });
+    // 全てのメニューセクションを非表示
+    document.querySelectorAll('.menu-section').forEach(section => {
+        section.style.display = 'none';
+    });
 
-            // 対応するメニューボタンを選択状態にする
-            document.querySelectorAll('.menu-sections button').forEach(button => {
-                if (button.getAttribute('onclick') === `showMenu('${menu}')`) {
-                    button.classList.add('active');
-                }
-            });
-
-            // 選択されたメニューセクションを表示
-            document.getElementById(menu).classList.add('active');
-
-            // "オフのみ"が選択されている場合は、全メニューを非表示にする
-            if (nailCount === 'オフのみ') {
-                document.getElementById('male').style.display = 'none';
-                document.getElementById('female').style.display = 'none';
-            } else {
-                // 選択されたメニューがネイルか講習かで表示を切り替える
-                if (menu === 'male') {
-                    document.getElementById('male').style.display = 'block';
-                    document.getElementById('female').style.display = 'none';
-                } else if (menu === 'female') {
-                    document.getElementById('male').style.display = 'none';
-                    document.getElementById('female').style.display = 'block';
-                }
-            }
-
-            // メニューとオプションをリセット
-            selectedSymptom = '';      // メニューのリセット
-            irradiationsCount = '';    // オプションのリセット
-            menuPrice = 0;             // メニューの価格リセット
-            optionsPrice = 0;          // オプションの価格リセット
-            totalAmount = 0;           // 合計金額リセット
-
-            // 表示を更新
-            updateDisplayInfo();
+    // 選択されたメニューボタンをアクティブ状態にする
+    document.querySelectorAll('.menu-sections button').forEach(button => {
+        if (button.getAttribute('onclick') === `showMenu('${menu}')`) {
+            button.classList.add('active');
         }
+    });
+
+    // 選択されたメニューセクションを表示
+    const selectedSection = document.getElementById(menu);
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+    }
+
+    // "オフのみ"が選択されている場合は全メニューを非表示にする
+    if (nailCount === 'オフのみ') {
+        document.querySelectorAll('.menu-section').forEach(section => {
+            section.style.display = 'none';
+        });
+    }
+
+    // メニューとオプションをリセット
+    selectedSymptom = '';      // メニューのリセット
+    irradiationsCount = '';    // オプションのリセット
+    menuPrice = 0;             // メニューの価格リセット
+    optionsPrice = 0;          // オプションの価格リセット
+    totalAmount = 0;           // 合計金額リセット
+
+    // 表示を更新
+    updateDisplayInfo();
+}
+
 
         function selectDate(cell) {
             // "unavailable" クラスが付いている場合はクリックを無効化
