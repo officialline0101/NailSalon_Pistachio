@@ -1379,7 +1379,7 @@
             const table = calendar.querySelector('table tbody');
 
             const times = [
-                '09:00', '09:15', '09:30', '09:45',
+                '09:30', '09:45',
                 '10:00', '10:15', '10:30', '10:45',
                 '11:00', '11:15', '11:30', '11:45',
                 '12:00', '12:15', '12:30', '12:45',
@@ -1518,12 +1518,6 @@
                     else if (businessEventTimes.length > 0) {
                         cell.textContent = '✕';
                         cell.classList.add('unavailable');
-                    }
-                    // 月・火・木・金の09:00~10:59は✕にする（優先的にチェック）
-                    if ((slotStart.getDay() === 1 || slotStart.getDay() === 2 || slotStart.getDay() === 4 || slotStart.getDay() === 5) &&
-                        slotStart.getHours() >= 9 && slotStart.getHours() <= 10) {
-                        cell.textContent = '✕';
-                        cell.classList.add('unavailable', 'black-x'); // 'black-x'クラスを追加
                     }
                     // 日曜日で、営業日ではない場合
                     else if (slotStart.getDay() === 0 && !isBusinessDay && businessEventTimes.length === 0) {
