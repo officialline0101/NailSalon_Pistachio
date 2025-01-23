@@ -60,6 +60,7 @@
         }
 
         .visit-buttons,
+        .oneselect-buttons,
         .symptoms,
         .nail-buttons,
         .gel-buttons,
@@ -72,6 +73,7 @@
         }
 
         .visit-buttons button,
+        .oneselect-buttons button,
         .symptoms button,
         .nail-buttons button,
         .gel-buttons button,
@@ -89,6 +91,7 @@
         }
 
         .visit-buttons button.active,
+        .oneselect-buttons button.active,
         .symptoms button.active,
         .gel-buttons button.active,
         .nail-buttons button.active,
@@ -172,7 +175,7 @@
         }
 
         .calendar td.selected {
-            background-color: #13ca5e;
+            background-color: #005ea6;
             /* 選択されたカレンダーのセルの背景色を緑色に設定 */
             color: #fff;
             /* 選択されたセルのテキスト色を白に設定 */
@@ -246,7 +249,7 @@
             height: 60px;
             border: 5px solid rgba(255, 255, 255, 0.2);
             /* 薄い白で枠を柔らかく */
-            border-top-color: #00d1ff;
+            border-top-color: #005ea6;
             /* 明るい青で目立たせる */
             border-radius: 50%;
             /* 丸い形状 */
@@ -336,27 +339,28 @@
 
         .info-text {
             margin-top: 20px;
-            /* 下にずらすスペース */
+            /* 上の余白 */
+            margin-bottom: 10px;
+            /* 下に白い隙間を追加 */
             font-size: 13px;
-            /* 読みやすいサイズ */
             color: #000000;
-            /* 説明文らしい落ち着いた色 */
             line-height: 1.5;
-            /* テキスト間の高さを適切に設定 */
             text-align: center;
-            /* 中央揃え */
             word-wrap: break-word;
-            /* 長いテキストの折り返しを強制 */
+            background-color: #eef9f5;
+            /* 青っぽい背景色を追加 */
+            padding: 10px;
+            border-radius: 4px;
         }
 
         /* 携帯端末向けのレスポンシブデザイン */
         @media (max-width: 768px) {
             .info-text {
-                font-size: 10px;
+                font-size: 11.5px;
                 /* スマホでは少し小さく */
-                margin-top: 15px;
+                margin-top: 10px;
                 /* 上下のマージンを調整 */
-                line-height: 1.4;
+                line-height: 2.0;
                 /* テキストの高さ調整 */
             }
         }
@@ -521,12 +525,22 @@
             color: black;
             /* ✕を黒色に設定 */
         }
+
         .gel-buttons {
-    display: flex; /* フレックスボックスで配置 */
-    flex-direction: column; /* ボタンを縦並びにする */
-    gap: 10px; /* ボタン間に余白を追加 */
-    width: 100%; /* 親要素の幅を使用 */
+            display: flex;
+            /* フレックスボックスで配置 */
+            flex-direction: column;
+            /* ボタンを縦並びにする */
+            gap: 10px;
+            /* ボタン間に余白を追加 */
+            width: 100%;
+            /* 親要素の幅を使用 */
+        }
+
+        #visitReasonSection {
+    display: none;
 }
+
         .info-
     </style>
 </head>
@@ -546,6 +560,17 @@
             <button type="button" id="firstVisit" onclick="selectVisit(this)">1回目</button>
             <button type="button" id="repeatVisit" onclick="selectVisit(this)">2回目以降</button>
         </div>
+
+        <div id="visitReasonSection">
+    <div class="label">来店のきっかけ</div>
+    <div class="oneselect-buttons">
+        <button type="button" id="chanceoneselect" onclick="selectoneselect(this)">ネイルブック</button>
+        <button type="button" id="chancetwoselect" onclick="selectoneselect(this)">Instagram</button>
+        <button type="button" id="chancethreeselect" onclick="selectoneselect(this)">X(旧Twitter)</button>
+        <button type="button" id="chancefourselect" onclick="selectoneselect(this)">ご紹介クーポン</button>
+        <button type="button" id="chancefiveselect" onclick="selectoneselect(this)">その他</button>
+    </div>
+</div>
 
         <div class="label">ネイルオフの有無</div>
         <div class="nail-buttons">
@@ -692,9 +717,10 @@
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
         let visitCount = '';
+        let oneselectCount = '';
         let nailCount = '';
         let gelCount = '';
-        let selectedSymptom = [];  // 配列として定義
+        let selectedSymptom = '';  // 配列として定義
         let selectedFullDate = '';
         let currentDate = new Date();
         let availabilityCache = {};
@@ -859,6 +885,8 @@
 
             // 選択されたオプションを取得
             const updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
+            selectedSymptom = Array.from(updatedSelectedButtons).map(btn => btn.textContent.trim());
+            selectedSymptom = selectedSymptom.join(', ');
 
             // メニュー時間と価格をリセット
             selectedMenuTime = 0;
@@ -1139,7 +1167,7 @@
 
             // メニュー選択をリセット
             document.querySelectorAll('.symptoms button').forEach(btn => btn.classList.remove('active'));
-            selectedSymptom = [];
+            selectedSymptom = '';
             menuPrice = 0;
 
             // オプションの選択をリセット
@@ -1150,6 +1178,7 @@
             // 表示更新
             updateDisplayInfo();
         }
+
         function selectirradiations(button) {
             // 選択された日時をリセット
             selectedFullDate = '';
@@ -1193,68 +1222,91 @@
         }
 
         function selectVisit(element) {
+        // 選択された日時をリセット
+        selectedFullDate = '';
+
+        document.getElementById('firstVisit').classList.remove('active');
+        document.getElementById('repeatVisit').classList.remove('active');
+        element.classList.add('active');
+        visitCount = element.innerText;
+
+        // "1回目"の場合は「来店のきっかけ」を表示、それ以外は非表示
+        const visitReasonSection = document.getElementById('visitReasonSection');
+        if (visitCount === "1回目") {
+            visitReasonSection.style.display = "block";
+        } else {
+            visitReasonSection.style.display = "none";
+        }
+
+        // カレンダーを更新するために取得する日付を渡す
+        fetchAvailability(currentDate);
+    }
+
+        function selectoneselect(element) {
             // 選択された日時をリセット
             selectedFullDate = '';
 
-            document.getElementById('firstVisit').classList.remove('active');
-            document.getElementById('repeatVisit').classList.remove('active');
+            document.getElementById('chanceoneselect').classList.remove('active');
+            document.getElementById('chancetwoselect').classList.remove('active');
+            document.getElementById('chancethreeselect').classList.remove('active');
+            document.getElementById('chancefourselect').classList.remove('active');
+            document.getElementById('chancefiveselect').classList.remove('active');
             element.classList.add('active');
-            visitCount = element.innerText;
+            oneselectCount = element.innerText;
 
             // 選択された訪問回数に対応する時間を取得
-            selectedVisitTime = visitTimes[visitCount];
+            selectedoneselectTime = oneselectTimes[oneselectCount];
 
-            console.log('選択された訪問回数の時間:', selectedVisitTime);
+            console.log('選択された訪問回数の時間:', selectedoneselectTime);
 
             // カレンダーを更新するために取得する日付を渡す
             fetchAvailability(currentDate);
         }
 
-
         function showMenu(menu) {
-    // 選択された日時をリセット
-    selectedFullDate = '';
+            // 選択された日時をリセット
+            selectedFullDate = '';
 
-    // 全てのメニューボタンの選択状態をリセット
-    document.querySelectorAll('.menu-sections button').forEach(button => {
-        button.classList.remove('active');
-    });
+            // 全てのメニューボタンの選択状態をリセット
+            document.querySelectorAll('.menu-sections button').forEach(button => {
+                button.classList.remove('active');
+            });
 
-    // 全てのメニューセクションを非表示
-    document.querySelectorAll('.menu-section').forEach(section => {
-        section.style.display = 'none';
-    });
+            // 全てのメニューセクションを非表示
+            document.querySelectorAll('.menu-section').forEach(section => {
+                section.style.display = 'none';
+            });
 
-    // 選択されたメニューボタンをアクティブ状態にする
-    document.querySelectorAll('.menu-sections button').forEach(button => {
-        if (button.getAttribute('onclick') === `showMenu('${menu}')`) {
-            button.classList.add('active');
+            // 選択されたメニューボタンをアクティブ状態にする
+            document.querySelectorAll('.menu-sections button').forEach(button => {
+                if (button.getAttribute('onclick') === `showMenu('${menu}')`) {
+                    button.classList.add('active');
+                }
+            });
+
+            // 選択されたメニューセクションを表示
+            const selectedSection = document.getElementById(menu);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+
+            // "オフのみ"が選択されている場合は全メニューを非表示にする
+            if (nailCount === 'オフのみ') {
+                document.querySelectorAll('.menu-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+            }
+
+            // メニューとオプションをリセット
+            selectedSymptom = '';      // メニューのリセット
+            irradiationsCount = '';    // オプションのリセット
+            menuPrice = 0;             // メニューの価格リセット
+            optionsPrice = 0;          // オプションの価格リセット
+            totalAmount = 0;           // 合計金額リセット
+
+            // 表示を更新
+            updateDisplayInfo();
         }
-    });
-
-    // 選択されたメニューセクションを表示
-    const selectedSection = document.getElementById(menu);
-    if (selectedSection) {
-        selectedSection.style.display = 'block';
-    }
-
-    // "オフのみ"が選択されている場合は全メニューを非表示にする
-    if (nailCount === 'オフのみ') {
-        document.querySelectorAll('.menu-section').forEach(section => {
-            section.style.display = 'none';
-        });
-    }
-
-    // メニューとオプションをリセット
-    selectedSymptom = '';      // メニューのリセット
-    irradiationsCount = '';    // オプションのリセット
-    menuPrice = 0;             // メニューの価格リセット
-    optionsPrice = 0;          // オプションの価格リセット
-    totalAmount = 0;           // 合計金額リセット
-
-    // 表示を更新
-    updateDisplayInfo();
-}
 
 
         function selectDate(cell) {
@@ -1287,6 +1339,7 @@
                 name: document.getElementById('name').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
                 visitCount: visitCount,
+                oneselectCount: oneselectCount,
                 gelCount: gelCount,
                 nailCount: nailCount,
                 selectedSymptom: selectedSymptom,
@@ -1314,7 +1367,7 @@
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\nネイルオフの有無：${formData.nailCount}\nメニュー：${formData.selectedSymptom},${formData.irradiationsCount},${formData.gelCount}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
+                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\n来店のきっかけ：${formData.oneselectCount}\nネイルオフの有無：${formData.nailCount}\nメニュー：${formData.selectedSymptom},${formData.irradiationsCount},${formData.gelCount}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
             }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('当日キャンセルは無いようにお願いいたします。');
