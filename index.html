@@ -1142,24 +1142,33 @@
             }
 
             // "オフのみ" の場合、他のメニューやオプションを非表示にする
-            const labelMenu = document.querySelector('.label:nth-of-type(9)');
+            const labelMenu = document.querySelector('.label:nth-of-type(10)');
             const menuButtons = document.querySelector('.menu-sections');
             const maleMenu = document.getElementById('male');
             const femaleMenu = document.getElementById('female');
 
-            if (nailCount === 'オフのみ') {
-                labelMenu.style.display = 'none';
-                menuButtons.style.display = 'none';
-                maleMenu.style.display = 'none';
-                femaleMenu.style.display = 'none';
+    // <div id="treatment-text">の要素を取得
+    const treatmentText = document.querySelectorAll('#treatment-text');
 
-                // メニュー変更後にカレンダーを表示
-                const calendarContainer = document.querySelector('.calendar-container');
-                calendarContainer.style.display = 'block';
-            } else {
-                labelMenu.style.display = 'block';
-                menuButtons.style.display = 'flex';
-            }
+    if (nailCount === 'オフのみ') {
+        labelMenu.style.display = 'none';
+        menuButtons.style.display = 'none';
+        maleMenu.style.display = 'none';
+        femaleMenu.style.display = 'none';
+
+        // treatment-textを非表示にする
+        treatmentText.forEach(element => element.style.display = 'none');
+
+        // メニュー変更後にカレンダーを表示
+        const calendarContainer = document.querySelector('.calendar-container');
+        calendarContainer.style.display = 'block';
+    } else {
+        labelMenu.style.display = 'block';
+        menuButtons.style.display = 'flex';
+
+        // treatment-textを再表示する
+        treatmentText.forEach(element => element.style.display = 'block');
+    }
 
             // 他店/自店の選択をリセット
             document.querySelectorAll('.gel-buttons button').forEach(btn => btn.classList.remove('active'));
